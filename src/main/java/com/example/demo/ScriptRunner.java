@@ -16,14 +16,18 @@ import static com.example.demo.ScriptPaths.TEST;
 public class ScriptRunner
 {
 
+	private static final String scriptPath = TEST;
+
 
 	@ShellMethod(key = "run")
 	public static void main(@ShellOption(defaultValue = "spring")  String[] args) {
 
+		setExecutePermissions();
+
 		try {
 
 			// Run the Bash script
-			ProcessBuilder pb = new ProcessBuilder("bash", "-c", getPath());
+			ProcessBuilder pb = new ProcessBuilder("bash", "-c", scriptPath);
 			pb.redirectErrorStream(true);
 			Process process = pb.start();
 
@@ -62,8 +66,8 @@ public class ScriptRunner
 
 
 
-	public static String getPath(){
-		String scriptPath = TEST;
+	public static void setExecutePermissions(){
+
 		try {
 			Process chmodProcess = Runtime.getRuntime().exec("chmod +x " + scriptPath);
 			// Wait for the chmod process to finish
@@ -76,7 +80,7 @@ public class ScriptRunner
 			// Handle permission setting failure
 			e.printStackTrace();
 		}
-		return scriptPath;
+
 	}
 
 
