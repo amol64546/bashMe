@@ -13,7 +13,7 @@ public class Permissions
             int chmodExitCode = chmodProcess.waitFor();
             // Check if chmod executed successfully
             if (chmodExitCode != 0) {
-                System.out.println("Failed to set execute permissions on the script file");
+                log.error("Failed to set execute permissions on the script file");
             }
         } catch (Exception e) {
             log.error("Error setting execute permissions on the script file", e);
