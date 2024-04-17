@@ -1,8 +1,11 @@
 package com.example.demo.utils;
 
+import com.example.demo.Exceptions.PermissionException;
+import com.example.demo.Exceptions.ScriptRunnerException;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 import static org.springframework.shell.command.invocation.InvocableShellMethod.log;
@@ -21,13 +24,15 @@ public class ScriptUtils
             if (chmodExitCode != 0) {
                 log.error("Failed to set execute permissions on the script file");
             }
-        } catch (Exception e) {
+        } catch (InterruptedException | IOException e) {
             log.error("Error setting execute permissions on the script file", e);
+            throw new PermissionException();
         }
 
     }
 
-    public void runner(String scriptPath){
+    public void runner(String scriptPath)
+    {
 
         setExecutePermissions(scriptPath);
 
@@ -49,6 +54,7 @@ public class ScriptUtils
         } catch (Exception e)
         {
             log.error("Error running the script", e);
+            throw new ScriptRunnerException();
         }
     }
 }

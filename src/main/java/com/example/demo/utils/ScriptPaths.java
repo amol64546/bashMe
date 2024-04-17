@@ -1,6 +1,7 @@
 package com.example.demo.utils;
 
 public enum ScriptPaths {
+
     TEST("test.sh"),
     INSTALL_MONGO("install/mongo.sh"),
     INSTALL_POSTGRES("install/postgres.sh"),
