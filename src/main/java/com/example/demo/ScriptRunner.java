@@ -9,26 +9,21 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
+import static com.example.demo.ScriptPaths.TEST;
+
 
 @ShellComponent
-public class YourClassName {
-
-	public static String getPath() {
-		return "/home/amol/Downloads/demo/src/main/resources/test.sh";
-	}
+public class ScriptRunner
+{
 
 
 	@ShellMethod(key = "run")
 	public static void main(@ShellOption(defaultValue = "spring")  String[] args) {
 
-		String scriptPath = getPath();
-
-		setExecutePermissions(scriptPath);
-
 		try {
 
 			// Run the Bash script
-			ProcessBuilder pb = new ProcessBuilder("bash", "-c", scriptPath);
+			ProcessBuilder pb = new ProcessBuilder("bash", "-c", getPath());
 			pb.redirectErrorStream(true);
 			Process process = pb.start();
 
@@ -67,7 +62,8 @@ public class YourClassName {
 
 
 
-	public static void setExecutePermissions(String scriptPath){
+	public static String getPath(){
+		String scriptPath = TEST;
 		try {
 			Process chmodProcess = Runtime.getRuntime().exec("chmod +x " + scriptPath);
 			// Wait for the chmod process to finish
@@ -80,6 +76,7 @@ public class YourClassName {
 			// Handle permission setting failure
 			e.printStackTrace();
 		}
+		return scriptPath;
 	}
 
 
