@@ -1,8 +1,8 @@
 package com.example.demo.utils;
 
-import com.example.demo.Exceptions.PermissionException;
-import com.example.demo.Exceptions.ScriptRunnerException;
-import org.springframework.stereotype.Component;
+import com.example.demo.Exceptions.ExecutePermissionException;
+import com.example.demo.Exceptions.ScriptException;
+import lombok.experimental.UtilityClass;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 
 import static org.springframework.shell.command.invocation.InvocableShellMethod.log;
 
-@Component
+@UtilityClass
 public class ScriptUtils
 {
 
@@ -26,7 +26,7 @@ public class ScriptUtils
             }
         } catch (InterruptedException | IOException e) {
             log.error("Error setting execute permissions on the script file", e);
-            throw new PermissionException();
+            throw new ExecutePermissionException();
         }
 
     }
@@ -54,7 +54,7 @@ public class ScriptUtils
         } catch (Exception e)
         {
             log.error("Error running the script", e);
-            throw new ScriptRunnerException();
+            throw new ScriptException();
         }
     }
 }

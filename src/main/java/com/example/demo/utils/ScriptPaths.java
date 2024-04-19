@@ -8,6 +8,7 @@ public enum ScriptPaths {
     UNINSTALL_MONGO("uninstall/mongo.sh"),
     UNINSTALL_POSTGRES("uninstall/postgres.sh");
 
+
     private final static String BASE_PATH = "/home/amol/Downloads/demo/src/main/java/com/example/demo/scripts/";
     private final String path;
 
