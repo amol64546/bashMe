@@ -9,11 +9,11 @@ public enum ScriptPaths {
     UNINSTALL_POSTGRES("uninstall/postgres.sh");
 
 
-    private final static String BASE_PATH = "/home/amol/Downloads/demo/src/main/java/com/example/demo/scripts/";
+    private final static String BASE_PATH = "/home/amol/Downloads/demo/src/main/resources/scripts/";
     private final String path;
 
     // Constructor
-    private ScriptPaths(String path) {
+    ScriptPaths(String path) {
         this.path = path;
     }
 
