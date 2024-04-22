@@ -1,4 +1,4 @@
-package com.example.demo.utils;
+package bashMe.utils;
 
 public enum ScriptPaths {
 

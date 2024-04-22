@@ -1,7 +1,7 @@
-package com.example.demo.utils;
+package bashMe.utils;
 
-import com.example.demo.Exceptions.ExecutePermissionException;
-import com.example.demo.Exceptions.ScriptException;
+import bashMe.Exceptions.ExecutePermissionException;
+import bashMe.Exceptions.ScriptException;
 import lombok.experimental.UtilityClass;
 
 import java.io.BufferedReader;

@@ -1,10 +1,10 @@
-package com.example.demo;
+package bashMe;
 
-import com.example.demo.utils.ScriptUtils;
+import bashMe.utils.ScriptUtils;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
-import static com.example.demo.utils.ScriptPaths.TEST;
+import static bashMe.utils.ScriptPaths.TEST;
 
 
 @ShellComponent
